@@ -5,8 +5,7 @@ import io.cucumber.junit.CucumberOptions;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import suport.DriverManager;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
@@ -16,15 +15,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
         tags = "~@ignore"
 )
 public class RunCucumberTest {
-    public static WebDriver driver ;
+
     @BeforeClass
-    public static void start(){
-        driver = new ChromeDriver();
+    public static void start() {
+        DriverManager.getDriver(); // Inicializa o WebDriver antes de todos os testes
     }
 
     @AfterClass
-    public static void stop(){
-        driver.quit();
+    public static void stop() {
+        DriverManager.quitDriver(); // Finaliza o WebDriver após todos os testes
     }
-
 }
