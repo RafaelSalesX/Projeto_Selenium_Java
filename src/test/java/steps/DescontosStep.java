@@ -14,14 +14,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.Keys;
+import runner.RunCucumberTest;
 
 
 import java.time.Duration;
 
 
-public class DescontosStep {
+public class DescontosStep extends RunCucumberTest {
 
-    WebDriver driver = new ChromeDriver();
+
 
     @Dado("^que estou no site da qazando")
     public void acessar_site_qazando(){
@@ -66,7 +67,5 @@ public class DescontosStep {
         String texto_cupom = driver.findElement(By.cssSelector("#cupom > h2 > span")).getText();
 
         Assert.assertEquals( "QAZANDO15OFF", texto_cupom);
-
-        driver.quit();
     }
 }
