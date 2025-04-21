@@ -11,8 +11,8 @@ import suport.DriverManager;
 @CucumberOptions(
         plugin = {},
         features = "src/test/resources/features",
-        glue = {"steps"},
-        tags = "~@ignore"
+        glue = {"steps", "suport"},
+        tags = "not @ignore"
 )
 public class RunCucumberTest {
 
@@ -21,8 +21,4 @@ public class RunCucumberTest {
         DriverManager.getDriver(); // Inicializa o WebDriver antes de todos os testes
     }
 
-    @AfterClass
-    public static void stop() {
-        DriverManager.quitDriver(); // Finaliza o WebDriver após todos os testes
-    }
 }

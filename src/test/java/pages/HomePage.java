@@ -9,6 +9,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 
+import java.time.Duration;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -29,18 +31,19 @@ public class HomePage {
 
     }
 
-    public void scrollDown(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+    public void scrollDown() {
+        // Usando Duration para o WebDriverWait
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         // Garante que o botão está presente no DOM
         WebElement botao = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("button")));
 
-        // Scroll até o botão (só pra visualização mesmo)
+        // Scroll até o botão (só para visualização)
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", botao);
 
-        // Aguarda um pouco pra dar tempo de ver o scroll (opcional)
+        // Aguarda um pouco para dar tempo de ver o scroll (opcional)
         try {
-            Thread.sleep(1000); // 1 segundo
+            Thread.sleep(2000); // 2 segundos
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

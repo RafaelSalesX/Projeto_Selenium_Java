@@ -1,8 +1,8 @@
 package suport;
 
 import io.cucumber.java.Before;
+import io.cucumber.java.After;
 import pages.HomePage;
-import suport.DriverManager;
 
 public class BaseSteps {
     protected HomePage homePage;
@@ -11,4 +11,5 @@ public class BaseSteps {
     public void setUp() {
         homePage = new HomePage(DriverManager.getDriver());
     }
+
 }

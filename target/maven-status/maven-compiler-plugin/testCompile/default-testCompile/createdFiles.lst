@@ -1,0 +1,6 @@
+runner\RunCucumberTest.class
+steps\DescontoStep.class
+suport\BaseSteps.class
+pages\HomePage.class
+suport\DriverManager.class
+suport\Hooks.class
